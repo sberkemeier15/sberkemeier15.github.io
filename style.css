@@ -1,10 +1,36 @@
-/* color scheme 
-Dark Blue: #253d49
-Muted Brown: #815e55
-Bright Orange: #ff8252
-Soft Beige: #e4d4cd
-Light Blue: #f3feff
-*/
+
+/* Define global color variables */
+:root {
+  --dark-blue: #253d49;
+  --muted-brown: #815e55;
+  --bright-orange: #ff8252;
+  --soft-beige: #e4d4cd;
+  --light-blue: #f3feff;
+
+  /* Default Light Mode Colors */
+  --background-color: var(--light-blue);
+  --text-color: var(--dark-blue);
+  --accent-color: var(--bright-orange);
+  --secondary-color: var(--muted-brown);
+}
+
+/* Dark Mode Overrides */
+.dark-mode {
+  --background-color: var(--dark-blue);
+  --text-color: var(--soft-beige);
+  --accent-color: var(--bright-orange);
+  --secondary-color: var(--muted-brown);
+}
+
+/* Apply Variables to the Page */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+
 
 
 /* main adjustments */
@@ -33,7 +59,7 @@ header {
   justify-content: space-between; 
   align-items: center; 
   padding: 10px 20px; 
-  background-color:#f3feff; 
+  background-color: var(--background-color); 
   border-bottom: 2px solid #8c9d75; 
 }
   
@@ -52,7 +78,7 @@ header {
   /* Link styling */
 .nav-links a {
   text-decoration: none; 
-  color: #253d49; 
+  color: var(--text-color); 
   font-size: 1rem; 
   font-weight: 500;
   transition: color 0.3s ease; 
@@ -63,7 +89,7 @@ header {
   
   /* Hover effect for links */
 .nav-links a:hover {
-  color: #ff8252; 
+  color: var(--accent-color); 
 }
 
 /* about me container */
@@ -111,7 +137,7 @@ header {
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
-  background-color: #f3feff;
+  background-color: var(--background-color)
 }
 
 .project:hover {
@@ -127,13 +153,13 @@ header {
 
 .project a {
   text-decoration: none;
-  color: #253d49;
+  color: var(--text-color);
   font-weight: bold;
   transition: color 0.3s ease;
 }
 
 .project a:hover {
-  color: #ff8252;
+  color: var(--accent-color);
 }
 
 /* skills container */
@@ -160,13 +186,13 @@ header {
 
 .skills-container li i {
   transform: scale(2);
-  color: #253d49;
+  color: var(--text-color);
   cursor: pointer;
   transition: color 0.3s ease;
 }
 
 .skills-container li i:hover {
-  color: #ff8252;
+  color: var(--accent-color);
   transform: scale(2.2);
 } 
 
@@ -182,7 +208,7 @@ header {
   border: 1px solid #8c9d75;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
-  background-color:#f3feff;
+  background-color: var(--background-color);
 }
 
 .contact ul {
@@ -200,7 +226,20 @@ header {
 
 .contact li i {
   transform: scale(2);
-  color:  #253d49; /* adjust the value to your desired size */
+  color:  var(--text-color);
+}
+
+.dark-mode-toggle button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
+.dark-mode-toggle button:hover {
+  color: var(--accent-color);
 }
 
 @media screen and (max-width: 768px) {
